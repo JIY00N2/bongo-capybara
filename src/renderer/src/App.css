@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 드래그 핸들: 상단 바 */
+#drag-handle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  cursor: grab;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.05);
+}
+#drag-handle:active {
+  cursor: grabbing;
+}
+
+/* 캐릭터 컨테이너 */
+#character {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PNG 레이어: 절대 위치로 겹침 */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+.layer.visible {
+  display: block;
+}
+
+/* ── 설정 패널 ──────────────────────────────── */
+#settings-panel {
+  position: fixed;
+  bottom: 4px;
+  right: 6px;
+  display: flex;
+  gap: 4px;
+  z-index: 200;
+}
+
+#settings-panel button {
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  line-height: 1;
+}
+#settings-panel button:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/* ── 이미지 설정 팝업 ───────────────────────── */
+#image-settings {
+  position: fixed;
+  bottom: 28px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  padding: 8px;
+  z-index: 200;
+  min-width: 220px;
+  backdrop-filter: blur(4px);
+}
+
+#image-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#reset-all-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0 2px;
+}
+#reset-all-btn:hover {
+  color: white;
+}
+
+.img-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.img-label {
+  flex: 1;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.img-pick-btn {
+  font-size: 9px;
+  padding: 2px 5px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+.img-pick-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.img-reset-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 2px;
+  line-height: 1;
+}
+.img-reset-btn:hover {
+  color: white;
+}
+
+/* ── 마이크 상태 표시 ───────────────────────── */
+#mic-indicator {
+  position: fixed;
+  top: 4px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #555;
+  z-index: 200;
+  transition: background 0.1s;
+}
+#mic-indicator.active { background: #2ecc71; }
+#mic-indicator.error  { background: #e74c3c; }
