@@ -83,6 +83,13 @@ export default function App() {
         />
       )}
 
+      {/* OBS URL 안내 */}
+      {showSettings && (
+        <div id="obs-url">
+          OBS 브라우저 소스: <strong>http://localhost:3876</strong>
+        </div>
+      )}
+
       {/* 버튼들 */}
       <div id="settings-panel">
         <button
@@ -90,7 +97,7 @@ export default function App() {
           style={{ opacity: micEnabled ? 1 : 0.4 }}
           onClick={toggleMic}
         >🎤</button>
-<button
+        <button
           title="이미지 설정"
           style={{ opacity: showSettings ? 1 : 0.4 }}
           onClick={() => setShowSettings(prev => !prev)}

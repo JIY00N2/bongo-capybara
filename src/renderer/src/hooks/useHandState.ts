@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import type { HandState } from '../types'
 
 const HAND_HOLD_MS = 120
+const OBS_WS_URL = 'ws://localhost:3876'
 
 export function useHandState(): HandState {
   const [handState, setHandState] = useState<HandState>('idle')
-  // setTimeout 콜백에서 최신 state를 읽기 위해 ref 사용
   const stateRef = useRef<HandState>('idle')
   const timers = useRef<{ left: ReturnType<typeof setTimeout> | null; right: ReturnType<typeof setTimeout> | null }>({
     left: null,
@@ -38,12 +38,40 @@ export function useHandState(): HandState {
   }
 
   useEffect(() => {
-    if (!window.electronAPI) return
+    // Electron IPC 방식 (일반 앱 창)
+    if (window.electronAPI) {
+      window.electronAPI.onHandState((state: HandState) => {
+        if (state !== 'idle') triggerBounce(state)
+        else applyHandState('idle')
+      })
+      return
+    }
 
-    window.electronAPI.onHandState((state: HandState) => {
-      if (state !== 'idle') triggerBounce(state)
-      else applyHandState('idle')
-    })
+    // WebSocket 방식 (OBS 브라우저 소스)
+    let ws: WebSocket | null = null
+    let reconnectTimer: ReturnType<typeof setTimeout> | null = null
+
+    function connect() {
+      ws = new WebSocket(OBS_WS_URL)
+      ws.onmessage = (e) => {
+        try {
+          const data = JSON.parse(e.data)
+          if (data.type === 'hand-state') {
+            triggerBounce(data.state as HandState)
+          }
+        } catch {}
+      }
+      ws.onclose = () => {
+        reconnectTimer = setTimeout(connect, 2000)
+      }
+    }
+
+    connect()
+
+    return () => {
+      if (reconnectTimer) clearTimeout(reconnectTimer)
+      ws?.close()
+    }
   }, [])
 
   return handState

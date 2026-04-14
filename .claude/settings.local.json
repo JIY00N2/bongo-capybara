@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx electron-vite:*)",
+      "Bash(npm run:*)",
+      "Bash(npx electron:*)",
+      "Bash(node_modules/.bin/electron --version)",
+      "Bash(node_modules/electron/dist/Electron.app/Contents/MacOS/Electron --version)",
+      "Bash(node_modules/electron/dist/Electron.app/Contents/Resources/default_app.asar)",
+      "Bash(node_modules/electron/dist/Electron.app/Contents/MacOS/Electron -e \"console.log\\(process.versions.electron\\)\")",
+      "Bash(node_modules/electron/dist/Electron.app/Contents/MacOS/Electron -e \"const e = require\\('electron'\\); console.log\\(typeof e, typeof e.app, typeof e.ipcMain\\);\")",
+      "Bash(node_modules/electron/dist/Electron.app/Contents/MacOS/Electron -e ':*)",
+      "Bash(open -a \"/Users/jiyoon/bongo-capybara/node_modules/electron/dist/Electron.app\" --args .)",
+      "Bash(kill %1)",
+      "Bash(npm show:*)",
+      "Bash(node -e \"const v=JSON.parse\\(require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\)\\); const recent=v.filter\\(x=>parseInt\\(x\\)>=33\\).slice\\(-5\\); console.log\\(recent.join\\('\\\\n'\\)\\);\")",
+      "Bash(node_modules/.bin/electron -e \"const e = require\\('electron'\\); console.log\\('type:', typeof e, '| app:', typeof e.app, '| ipcMain:', typeof e.ipcMain\\);\")",
+      "Bash(cat)",
+      "Bash(node_modules/.bin/electron test-main.js)",
+      "Bash(mkdir -p /tmp/electron-test)",
+      "Read(//tmp/**)",
+      "Bash(/Users/jiyoon/bongo-capybara/node_modules/.bin/electron /tmp/electron-test/main.js)",
+      "Bash(ELECTRON_RUN_AS_NODE=0 node_modules/.bin/electron -e \"const e = require\\('electron'\\); console.log\\('type:', typeof e, '| app:', typeof e.app, '| ipcMain:', typeof e.ipcMain\\);\")",
+      "Bash(ELECTRON_RUN_AS_NODE=0 node_modules/.bin/electron .)",
+      "Bash(env -u ELECTRON_RUN_AS_NODE node_modules/.bin/electron .)",
+      "Bash(env -u ELECTRON_RUN_AS_NODE npm run dev)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(node -e \"const p = require\\('./node_modules/electron/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(pkill -f \"electron-vite\")",
+      "Bash(pkill -f \"electron.*bongo\")",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(gh repo:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(git tag:*)",
+      "Bash(pkill -9 -f \"electron\")",
+      "Bash(pkill -9 -f \"bongo\")",
+      "Bash(pkill -9 -f \"vite\")",
+      "Bash(gh run:*)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
+    ]
+  }
+}
