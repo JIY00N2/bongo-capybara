@@ -90,7 +90,7 @@ export default function App() {
           style={{ opacity: micEnabled ? 1 : 0.4 }}
           onClick={toggleMic}
         >🎤</button>
-        <button
+<button
           title="이미지 설정"
           style={{ opacity: showSettings ? 1 : 0.4 }}
           onClick={() => setShowSettings(prev => !prev)}

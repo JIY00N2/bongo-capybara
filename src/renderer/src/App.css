@@ -55,26 +55,35 @@ html, body, #root {
 /* ── 설정 패널 ──────────────────────────────── */
 #settings-panel {
   position: fixed;
-  bottom: 4px;
-  right: 6px;
+  bottom: 6px;
+  right: 8px;
   display: flex;
-  gap: 4px;
+  gap: 5px;
   z-index: 200;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#settings-panel:hover {
+  opacity: 1;
 }
 
 #settings-panel button {
-  width: 18px;
-  height: 18px;
-  font-size: 10px;
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
   border: none;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.35);
-  color: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #settings-panel button:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.85);
   color: white;
 }
 
