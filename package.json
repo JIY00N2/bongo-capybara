@@ -1,6 +1,6 @@
 {
   "name": "bongo-capybara",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Bongo Capybara OBS overlay - keyboard/mic reactive character",
   "main": "out/main/index.js",
   "scripts": {
