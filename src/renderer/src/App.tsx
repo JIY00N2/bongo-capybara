@@ -53,8 +53,6 @@ export default function App() {
 
   return (
     <>
-      {/* 드래그 핸들 */}
-      <div id="drag-handle" onMouseDown={handleDragStart} />
 
       {/* 마이크 상태 표시 */}
       <div
@@ -63,8 +61,8 @@ export default function App() {
         title="마이크 상태"
       />
 
-      {/* 캐릭터 영역 */}
-      <div id="character">
+      {/* 캐릭터 영역 - 드래그로 창 이동 */}
+      <div id="character" onMouseDown={handleDragStart}>
         <img key={paths.body}        className={`layer${handState === 'idle' ? ' visible' : ''}`} src={paths.body}        alt="" onError={e => (e.currentTarget.style.display = 'none')} />
 <img key={paths.handLeft}   className={`layer${handState === 'left'  ? ' visible' : ''}`} src={paths.handLeft}    alt="" onError={e => (e.currentTarget.style.display = 'none')} />
         <img key={paths.handRight}  className={`layer${handState === 'right' ? ' visible' : ''}`} src={paths.handRight}   alt="" onError={e => (e.currentTarget.style.display = 'none')} />

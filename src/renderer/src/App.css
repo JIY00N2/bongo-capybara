@@ -22,7 +22,7 @@ html, body, #root {
   height: 20px;
   cursor: grab;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
 }
 #drag-handle:active {
   cursor: grabbing;
