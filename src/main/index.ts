@@ -87,7 +87,8 @@ function startOBSServer(): void {
     })
 
     wss = new WebSocketServer({ server })
-    server.listen(OBS_PORT, () => {
+    server.on('error', (e) => console.error('[main] OBS 서버 오류:', e))
+    server.listen(OBS_PORT, '127.0.0.1', () => {
       console.log(`[main] OBS 브라우저 소스: http://localhost:${OBS_PORT}`)
     })
   }
