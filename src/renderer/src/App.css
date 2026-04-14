@@ -69,13 +69,13 @@ html, body, #root {
 }
 
 #settings-panel button {
-  width: 26px;
-  height: 26px;
-  font-size: 13px;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
   border: none;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.6);
-  color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  color: rgba(255, 255, 255, 0.95);
   cursor: pointer;
   line-height: 1;
   display: flex;
@@ -83,7 +83,7 @@ html, body, #root {
   justify-content: center;
 }
 #settings-panel button:hover {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9);
   color: white;
 }
 
