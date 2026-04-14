@@ -65,9 +65,8 @@ export default function App() {
 
       {/* 캐릭터 영역 */}
       <div id="character">
-        <img key={paths.body}        className="layer visible"                                    src={paths.body}        alt="" onError={e => (e.currentTarget.style.display = 'none')} />
-        <img key={paths.handIdle}   className={`layer${handState === 'idle'  ? ' visible' : ''}`} src={paths.handIdle}    alt="" onError={e => (e.currentTarget.style.display = 'none')} />
-        <img key={paths.handLeft}   className={`layer${handState === 'left'  ? ' visible' : ''}`} src={paths.handLeft}    alt="" onError={e => (e.currentTarget.style.display = 'none')} />
+        <img key={paths.body}        className={`layer${handState === 'idle' ? ' visible' : ''}`} src={paths.body}        alt="" onError={e => (e.currentTarget.style.display = 'none')} />
+<img key={paths.handLeft}   className={`layer${handState === 'left'  ? ' visible' : ''}`} src={paths.handLeft}    alt="" onError={e => (e.currentTarget.style.display = 'none')} />
         <img key={paths.handRight}  className={`layer${handState === 'right' ? ' visible' : ''}`} src={paths.handRight}   alt="" onError={e => (e.currentTarget.style.display = 'none')} />
         <img key={paths.mouthClosed} className={`layer${!mouthOpen ? ' visible' : ''}`}           src={paths.mouthClosed} alt="" onError={e => (e.currentTarget.style.display = 'none')} />
         <img key={paths.mouthOpen}  className={`layer${mouthOpen  ? ' visible' : ''}`}            src={paths.mouthOpen}   alt="" onError={e => (e.currentTarget.style.display = 'none')} />

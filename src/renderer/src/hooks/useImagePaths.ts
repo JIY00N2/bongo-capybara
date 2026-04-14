@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 export interface ImagePaths {
   body:        string
-  handIdle:    string
   handLeft:    string
   handRight:   string
   mouthClosed: string
@@ -13,7 +12,6 @@ export type ImageSlot = keyof ImagePaths
 
 const DEFAULTS: ImagePaths = {
   body:        'body/body.png',
-  handIdle:    'hands/idle.png',
   handLeft:    'hands/left.png',
   handRight:   'hands/right.png',
   mouthClosed: 'mouth/closed.png',
@@ -37,7 +35,6 @@ export function useImagePaths() {
     const filePath = await window.electronAPI?.selectImage()
     if (!filePath) return
 
-    // Electron에서 로컬 파일은 file:// 프로토콜로 로드
     const url = `file://${filePath}`
     const next = { ...paths, [slot]: url }
     setPaths(next)

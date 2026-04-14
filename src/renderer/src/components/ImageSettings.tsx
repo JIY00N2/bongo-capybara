@@ -1,8 +1,7 @@
 import { ImagePaths, ImageSlot } from '../hooks/useImagePaths'
 
 const SLOT_LABELS: Record<ImageSlot, string> = {
-  body:        '몸통',
-  handIdle:    '손 (대기)',
+  body:        '대기',
   handLeft:    '손 (왼쪽)',
   handRight:   '손 (오른쪽)',
   mouthClosed: '입 (닫힘)',
